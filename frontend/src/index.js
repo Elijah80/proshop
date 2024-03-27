@@ -9,6 +9,7 @@ import './assets/styles/bootstrap.custom.css'
 import './assets/styles/index.css'
 import App from './App'
 import PrivateRoute from './components/PrivateRoute'
+import AdminRoute from './components/AdminRoute'
 import HomeScreen from './screens/HomeScreen'
 import ProductScreen from './screens/ProductScreen'
 import CartScreen from './screens/CartScreen'
@@ -19,6 +20,7 @@ import PaymentScreen from './screens/PaymentScreen'
 import PlaceOrderScreen from './screens/PlaceOrderScreen'
 import OrderScreen from './screens/OrderScreen'
 import ProfileScreen from './screens/ProfileScreen'
+import OrderListScreen from './screens/admin/OrderListScreen'
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -28,6 +30,10 @@ const router = createBrowserRouter(
 			<Route path='/cart' element={<CartScreen />} />
 			<Route path='/login' element={<LoginScreen />} />
 			<Route path='/register' element={<RegisterScreen />} />
+
+			<Route path='' element={<AdminRoute />}>
+				<Route path='/admin/orderlist' element={<OrderListScreen />} />
+			</Route>
 
 			<Route path='' element={<PrivateRoute />}>
 				<Route path='/shipping' element={<ShippingScreen />} />
